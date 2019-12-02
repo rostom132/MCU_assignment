@@ -1,0 +1,1723 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Mon Sep 23 09:46:09 2019
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	18F8722
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    13                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    19                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    20  0000                     
+    21                           ; Version 2.10
+    22                           ; Generated 31/07/2019 GMT
+    23                           ; 
+    24                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution.
+    38                           ; 
+    39                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    40                           ;        software without specific prior written permission.
+    41                           ; 
+    42                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    43                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    44                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    45                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    46                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    47                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    48                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    49                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    50                           ; 
+    51                           ; 
+    52                           ; Code-generator required, PIC18F8722 Definitions
+    53                           ; 
+    54                           ; SFR Addresses
+    55  0000                     
+    56                           	psect	idataCOMRAM
+    57  00053A                     __pidataCOMRAM:
+    58                           	opt callstack 0
+    59                           
+    60                           ;initializer for _second_read_B
+    61  00053A  01                 	db	1
+    62                           
+    63                           ;initializer for _first_read_B
+    64  00053B  01                 	db	1
+    65                           
+    66                           ;initializer for _second_read_A
+    67  00053C  01                 	db	1
+    68                           
+    69                           ;initializer for _first_read_A
+    70  00053D  01                 	db	1
+    71  0000                     _PORTBbits	set	3969
+    72  0000                     _PORTAbits	set	3968
+    73  0000                     _ADCON1	set	4033
+    74  0000                     _PORTD	set	3971
+    75  0000                     _TRISD	set	3989
+    76  0000                     _TRISBbits	set	3987
+    77  0000                     _TRISAbits	set	3986
+    78  0000                     _T0CON	set	4053
+    79  0000                     _OSCCON	set	4051
+    80  0000                     _LATD	set	3980
+    81  0000                     _TMR0H	set	4055
+    82  0000                     _TMR0L	set	4054
+    83  0000                     _INTCONbits	set	4082
+    84                           
+    85                           ; #config settings
+    86  0000                     
+    87                           	psect	cinit
+    88  0004DE                     __pcinit:
+    89                           	opt callstack 0
+    90  0004DE                     start_initialization:
+    91                           	opt callstack 0
+    92  0004DE                     __initialization:
+    93                           	opt callstack 0
+    94                           
+    95                           ; Initialize objects allocated to COMRAM (4 bytes)
+    96                           ; load TBLPTR registers with __pidataCOMRAM
+    97  0004DE  0E3A               	movlw	low __pidataCOMRAM
+    98  0004E0  6EF6               	movwf	tblptrl,c
+    99  0004E2  0E05               	movlw	high __pidataCOMRAM
+   100  0004E4  6EF7               	movwf	tblptrh,c
+   101  0004E6  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   102  0004E8  6EF8               	movwf	tblptru,c
+   103  0004EA  EE00  F024         	lfsr	0,__pdataCOMRAM
+   104  0004EE  EE10 F004          	lfsr	1,4
+   105  0004F2                     copy_data0:
+   106  0004F2  0009               	tblrd		*+
+   107  0004F4  CFF5 FFEE          	movff	tablat,postinc0
+   108  0004F8  50E5               	movf	postdec1,w,c
+   109  0004FA  50E1               	movf	fsr1l,w,c
+   110  0004FC  E1FA               	bnz	copy_data0
+   111                           
+   112                           ; Clear objects allocated to COMRAM (25 bytes)
+   113  0004FE  EE00  F001         	lfsr	0,__pbssCOMRAM
+   114  000502  0E19               	movlw	25
+   115  000504                     clear_0:
+   116  000504  6AEE               	clrf	postinc0,c
+   117  000506  06E8               	decf	wreg,f,c
+   118  000508  E1FD               	bnz	clear_0
+   119  00050A                     end_of_initialization:
+   120                           	opt callstack 0
+   121  00050A                     __end_of__initialization:
+   122                           	opt callstack 0
+   123  00050A  9028               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   124  00050C  9228               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   125  00050E  0100               	movlb	0
+   126  000510  EF09  F000         	goto	_main	;jump to C main() function
+   127                           
+   128                           	psect	bssCOMRAM
+   129  000001                     __pbssCOMRAM:
+   130                           	opt callstack 0
+   131  000001                     _count_but2:
+   132                           	opt callstack 0
+   133  000001                     	ds	8
+   134  000009                     _count_but1:
+   135                           	opt callstack 0
+   136  000009                     	ds	8
+   137  000011                     _read_buttonB:
+   138                           	opt callstack 0
+   139  000011                     	ds	1
+   140  000012                     _read_buttonA:
+   141                           	opt callstack 0
+   142  000012                     	ds	1
+   143  000013                     _LED_count_sig:
+   144                           	opt callstack 0
+   145  000013                     	ds	1
+   146  000014                     _button:
+   147                           	opt callstack 0
+   148  000014                     	ds	1
+   149  000015                     _count_up:
+   150                           	opt callstack 0
+   151  000015                     	ds	1
+   152  000016                     _LED_display:
+   153                           	opt callstack 0
+   154  000016                     	ds	1
+   155  000017                     _LED_count:
+   156                           	opt callstack 0
+   157  000017                     	ds	1
+   158  000018                     _count_period:
+   159                           	opt callstack 0
+   160  000018                     	ds	1
+   161  000019                     _state_machine:
+   162                           	opt callstack 0
+   163  000019                     	ds	1
+   164                           
+   165                           	psect	dataCOMRAM
+   166  000024                     __pdataCOMRAM:
+   167                           	opt callstack 0
+   168  000024                     _second_read_B:
+   169                           	opt callstack 0
+   170  000024                     	ds	1
+   171  000025                     _first_read_B:
+   172                           	opt callstack 0
+   173  000025                     	ds	1
+   174  000026                     _second_read_A:
+   175                           	opt callstack 0
+   176  000026                     	ds	1
+   177  000027                     _first_read_A:
+   178                           	opt callstack 0
+   179  000027                     	ds	1
+   180                           
+   181                           	psect	cstackCOMRAM
+   182  00001A                     __pcstackCOMRAM:
+   183                           	opt callstack 0
+   184  00001A                     ?_read_button_A:
+   185                           	opt callstack 0
+   186  00001A                     ?_read_button_B:
+   187                           	opt callstack 0
+   188                           
+   189                           ; 2 bytes @ 0x0
+   190  00001A                     	ds	2
+   191  00001C                     ?_read_all_button:
+   192                           	opt callstack 0
+   193  00001C                     read_all_button@button_A:
+   194                           	opt callstack 0
+   195                           
+   196                           ; 2 bytes @ 0x2
+   197  00001C                     	ds	2
+   198  00001E                     read_all_button@button_B:
+   199                           	opt callstack 0
+   200                           
+   201                           ; 2 bytes @ 0x4
+   202  00001E                     	ds	2
+   203  000020                     ??_main:
+   204                           
+   205                           ; 1 bytes @ 0x6
+   206  000020                     	ds	2
+   207  000022                     main@state_butB:
+   208                           	opt callstack 0
+   209                           
+   210                           ; 1 bytes @ 0x8
+   211  000022                     	ds	1
+   212  000023                     main@state_butA:
+   213                           	opt callstack 0
+   214                           
+   215                           ; 1 bytes @ 0x9
+   216  000023                     	ds	1
+   217                           
+   218 ;;
+   219 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   220 ;;
+   221 ;; *************** function _main *****************
+   222 ;; Defined at:
+   223 ;;		line 45 in file "main.c"
+   224 ;; Parameters:    Size  Location     Type
+   225 ;;		None
+   226 ;; Auto vars:     Size  Location     Type
+   227 ;;  state_butA      1    9[COMRAM] enum E4572
+   228 ;;  state_butB      1    8[COMRAM] enum E4572
+   229 ;; Return value:  Size  Location     Type
+   230 ;;                  1    wreg      void 
+   231 ;; Registers used:
+   232 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+   233 ;; Tracked objects:
+   234 ;;		On entry : 0/0
+   235 ;;		On exit  : 0/0
+   236 ;;		Unchanged: 0/0
+   237 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   238 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   239 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   240 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   241 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   242 ;;Total ram usage:        4 bytes
+   243 ;; Hardware stack levels required when called:    3
+   244 ;; This function calls:
+   245 ;;		_initial
+   246 ;; This function is called by:
+   247 ;;		Startup code after reset
+   248 ;; This function uses a non-reentrant model
+   249 ;;
+   250                           
+   251                           	psect	text0
+   252  000012                     __ptext0:
+   253                           	opt callstack 0
+   254  000012                     _main:
+   255                           	opt callstack 28
+   256  000012                     
+   257                           ;main.c: 47:     enum state_button state_butA;;main.c: 48:     enum state_button state_b
+      +                          utB;;main.c: 49:     initial();
+   258  000012  EC8A  F002         	call	_initial	;wreg free
+   259  000016  EF74  F001         	goto	l1065
+   260  00001A                     l951:
+   261                           
+   262                           ;main.c: 55:                         state_machine = BUTTONA;
+   263  00001A  0E01               	movlw	1
+   264  00001C  6E19               	movwf	_state_machine^0,c
+   265                           
+   266                           ;main.c: 56:                         break;
+   267  00001E  EF74  F001         	goto	l1065
+   268  000022                     l953:
+   269                           
+   270                           ;main.c: 58:                         state_machine = BUTTONB;
+   271  000022  0E02               	movlw	2
+   272  000024  6E19               	movwf	_state_machine^0,c
+   273                           
+   274                           ;main.c: 59:                         break;
+   275  000026  EF74  F001         	goto	l1065
+   276  00002A                     l955:
+   277                           
+   278                           ;main.c: 61:                         state_machine = NORMAL;
+   279  00002A  0E00               	movlw	0
+   280  00002C  6E19               	movwf	_state_machine^0,c
+   281  00002E                     
+   282                           ;main.c: 62:                         count_but1 = 0;
+   283  00002E  EE20  F009         	lfsr	2,_count_but1
+   284  000032  0E07               	movlw	7
+   285  000034                     u141:
+   286  000034  6ADE               	clrf	postinc2,c
+   287  000036  06E8               	decf	wreg,f,c
+   288  000038  E2FD               	bc	u141
+   289  00003A                     l959:
+   290                           
+   291                           ;main.c: 63:                         count_but2 = 0;
+   292  00003A  EE20  F001         	lfsr	2,_count_but2
+   293  00003E  0E07               	movlw	7
+   294  000040                     u151:
+   295  000040  6ADE               	clrf	postinc2,c
+   296  000042  06E8               	decf	wreg,f,c
+   297  000044  E2FD               	bc	u151
+   298                           
+   299                           ;main.c: 64:                         break;
+   300  000046  EF74  F001         	goto	l1065
+   301  00004A                     l963:
+   302  00004A  5014               	movf	_button^0,w,c
+   303  00004C  6E20               	movwf	??_main^0,c
+   304  00004E  6A21               	clrf	(??_main+1)^0,c
+   305                           
+   306                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   307                           ; Switch size 1, requested type "simple"
+   308                           ; Number of cases is 1, Range of values is 0 to 0
+   309                           ; switch strategies available:
+   310                           ; Name         Instructions Cycles
+   311                           ; simple_byte            4     3 (average)
+   312                           ;	Chosen strategy is simple_byte
+   313  000050  5021               	movf	(??_main+1)^0,w,c
+   314  000052  0A00               	xorlw	0	; case 0
+   315  000054  B4D8               	btfsc	status,2,c
+   316  000056  EF2F  F000         	goto	l1213
+   317  00005A  EF74  F001         	goto	l1065
+   318  00005E                     l1213:
+   319                           
+   320                           ; Switch size 1, requested type "simple"
+   321                           ; Number of cases is 3, Range of values is 1 to 3
+   322                           ; switch strategies available:
+   323                           ; Name         Instructions Cycles
+   324                           ; simple_byte           10     6 (average)
+   325                           ;	Chosen strategy is simple_byte
+   326  00005E  5020               	movf	??_main^0,w,c
+   327  000060  0A01               	xorlw	1	; case 1
+   328  000062  B4D8               	btfsc	status,2,c
+   329  000064  EF0D  F000         	goto	l951
+   330  000068  0A03               	xorlw	3	; case 2
+   331  00006A  B4D8               	btfsc	status,2,c
+   332  00006C  EF11  F000         	goto	l953
+   333  000070  0A01               	xorlw	1	; case 3
+   334  000072  B4D8               	btfsc	status,2,c
+   335  000074  EF15  F000         	goto	l955
+   336  000078  EF74  F001         	goto	l1065
+   337  00007C                     l65:
+   338                           
+   339                           ;main.c: 66:                 break;
+   340  00007C  EF74  F001         	goto	l1065
+   341  000080                     l965:
+   342                           
+   343                           ;main.c: 68:                 if (button == 3 || button == 2){
+   344  000080  0E03               	movlw	3
+   345  000082  1814               	xorwf	_button^0,w,c
+   346  000084  B4D8               	btfsc	status,2,c
+   347  000086  EF47  F000         	goto	u161
+   348  00008A  EF49  F000         	goto	u160
+   349  00008E                     u161:
+   350  00008E  EF52  F000         	goto	l969
+   351  000092                     u160:
+   352  000092  0E02               	movlw	2
+   353  000094  1814               	xorwf	_button^0,w,c
+   354  000096  A4D8               	btfss	status,2,c
+   355  000098  EF50  F000         	goto	u171
+   356  00009C  EF52  F000         	goto	u170
+   357  0000A0                     u171:
+   358  0000A0  EFBD  F000         	goto	l1009
+   359  0000A4                     u170:
+   360  0000A4                     l969:
+   361                           
+   362                           ;main.c: 69:                     if (state_butA == PRESS) LATD = LED_display++;
+   363  0000A4  5023               	movf	main@state_butA^0,w,c
+   364  0000A6  A4D8               	btfss	status,2,c
+   365  0000A8  EF58  F000         	goto	u181
+   366  0000AC  EF5A  F000         	goto	u180
+   367  0000B0                     u181:
+   368  0000B0  EF5D  F000         	goto	l975
+   369  0000B4                     u180:
+   370  0000B4  C016  FF8C         	movff	_LED_display,3980	;volatile
+   371  0000B8  2A16               	incf	_LED_display^0,f,c
+   372  0000BA                     l975:
+   373                           
+   374                           ;main.c: 70:                     state_machine = NORMAL;
+   375  0000BA  0E00               	movlw	0
+   376  0000BC  6E19               	movwf	_state_machine^0,c
+   377  0000BE                     
+   378                           ;main.c: 71:                     state_butA = PRESS;
+   379  0000BE  0E00               	movlw	0
+   380  0000C0  6E23               	movwf	main@state_butA^0,c
+   381  0000C2                     
+   382                           ;main.c: 72:                     count_but1 = 0;
+   383  0000C2  EE20  F009         	lfsr	2,_count_but1
+   384  0000C6  0E07               	movlw	7
+   385  0000C8                     u191:
+   386  0000C8  6ADE               	clrf	postinc2,c
+   387  0000CA  06E8               	decf	wreg,f,c
+   388  0000CC  E2FD               	bc	u191
+   389                           
+   390                           ;main.c: 73:                 }
+   391  0000CE  EF74  F001         	goto	l1065
+   392  0000D2                     l981:
+   393                           
+   394                           ;main.c: 76:                         if (count_but1 > 1000/10 && count_but1 < 3000/10) s
+      +                          tate_butA = HOLD_FIRST;
+   395  0000D2  5010               	movf	(_count_but1+7)^0,w,c
+   396  0000D4  100F               	iorwf	(_count_but1+6)^0,w,c
+   397  0000D6  100E               	iorwf	(_count_but1+5)^0,w,c
+   398  0000D8  100D               	iorwf	(_count_but1+4)^0,w,c
+   399  0000DA  100C               	iorwf	(_count_but1+3)^0,w,c
+   400  0000DC  100B               	iorwf	(_count_but1+2)^0,w,c
+   401  0000DE  100A               	iorwf	(_count_but1+1)^0,w,c
+   402  0000E0  E109               	bnz	u200
+   403  0000E2  0E65               	movlw	101
+   404  0000E4  5C09               	subwf	_count_but1^0,w,c
+   405  0000E6  A0D8               	btfss	status,0,c
+   406  0000E8  EF78  F000         	goto	u201
+   407  0000EC  EF7A  F000         	goto	u200
+   408  0000F0                     u201:
+   409  0000F0  EF3E  F000         	goto	l65
+   410  0000F4                     u200:
+   411  0000F4  5010               	movf	(_count_but1+7)^0,w,c
+   412  0000F6  100F               	iorwf	(_count_but1+6)^0,w,c
+   413  0000F8  100E               	iorwf	(_count_but1+5)^0,w,c
+   414  0000FA  100D               	iorwf	(_count_but1+4)^0,w,c
+   415  0000FC  100C               	iorwf	(_count_but1+3)^0,w,c
+   416  0000FE  100B               	iorwf	(_count_but1+2)^0,w,c
+   417  000100  E109               	bnz	u211
+   418  000102  0E2C               	movlw	44
+   419  000104  5C09               	subwf	_count_but1^0,w,c
+   420  000106  0E01               	movlw	1
+   421  000108  580A               	subwfb	(_count_but1+1)^0,w,c
+   422  00010A  B0D8               	btfsc	status,0,c
+   423  00010C  EF8A  F000         	goto	u211
+   424  000110  EF8C  F000         	goto	u210
+   425  000114                     u211:
+   426  000114  EF3E  F000         	goto	l65
+   427  000118                     u210:
+   428  000118  0E01               	movlw	1
+   429  00011A  6E23               	movwf	main@state_butA^0,c
+   430  00011C  EF74  F001         	goto	l1065
+   431  000120                     l987:
+   432                           
+   433                           ;main.c: 79:                         if (count_but1 > 3000/10) state_butA = HOLD_SECOND;
+   434  000120  5010               	movf	(_count_but1+7)^0,w,c
+   435  000122  100F               	iorwf	(_count_but1+6)^0,w,c
+   436  000124  100E               	iorwf	(_count_but1+5)^0,w,c
+   437  000126  100D               	iorwf	(_count_but1+4)^0,w,c
+   438  000128  100C               	iorwf	(_count_but1+3)^0,w,c
+   439  00012A  100B               	iorwf	(_count_but1+2)^0,w,c
+   440  00012C  E10B               	bnz	u220
+   441  00012E  0E2D               	movlw	45
+   442  000130  5C09               	subwf	_count_but1^0,w,c
+   443  000132  0E01               	movlw	1
+   444  000134  580A               	subwfb	(_count_but1+1)^0,w,c
+   445  000136  A0D8               	btfss	status,0,c
+   446  000138  EFA0  F000         	goto	u221
+   447  00013C  EFA2  F000         	goto	u220
+   448  000140                     u221:
+   449  000140  EFA4  F000         	goto	l991
+   450  000144                     u220:
+   451  000144  0E02               	movlw	2
+   452  000146  6E23               	movwf	main@state_butA^0,c
+   453  000148                     l991:
+   454                           
+   455                           ;main.c: 80:                         if (LED_count > 500/10) {
+   456  000148  0E32               	movlw	50
+   457  00014A  6417               	cpfsgt	_LED_count^0,c
+   458  00014C  EFAA  F000         	goto	u231
+   459  000150  EFAC  F000         	goto	u230
+   460  000154                     u231:
+   461  000154  EF3E  F000         	goto	l65
+   462  000158                     u230:
+   463  000158                     l993:
+   464                           
+   465                           ;main.c: 81:                             LATD = LED_display++;
+   466  000158  C016  FF8C         	movff	_LED_display,3980	;volatile
+   467  00015C  2A16               	incf	_LED_display^0,f,c
+   468  00015E                     l997:
+   469                           
+   470                           ;main.c: 82:                             LED_count = 0;
+   471  00015E  0E00               	movlw	0
+   472  000160  6E17               	movwf	_LED_count^0,c
+   473  000162  EF74  F001         	goto	l1065
+   474  000166                     l999:
+   475                           
+   476                           ;main.c: 86:                         if (LED_count > 100/10) {
+   477  000166  0E0A               	movlw	10
+   478  000168  6417               	cpfsgt	_LED_count^0,c
+   479  00016A  EFB9  F000         	goto	u241
+   480  00016E  EFBB  F000         	goto	u240
+   481  000172                     u241:
+   482  000172  EF3E  F000         	goto	l65
+   483  000176                     u240:
+   484  000176  EFAC  F000         	goto	l993
+   485  00017A                     l1009:
+   486  00017A  5023               	movf	main@state_butA^0,w,c
+   487  00017C  6E20               	movwf	??_main^0,c
+   488  00017E  6A21               	clrf	(??_main+1)^0,c
+   489                           
+   490                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   491                           ; Switch size 1, requested type "simple"
+   492                           ; Number of cases is 1, Range of values is 0 to 0
+   493                           ; switch strategies available:
+   494                           ; Name         Instructions Cycles
+   495                           ; simple_byte            4     3 (average)
+   496                           ;	Chosen strategy is simple_byte
+   497  000180  5021               	movf	(??_main+1)^0,w,c
+   498  000182  0A00               	xorlw	0	; case 0
+   499  000184  B4D8               	btfsc	status,2,c
+   500  000186  EFC7  F000         	goto	l1215
+   501  00018A  EF74  F001         	goto	l1065
+   502  00018E                     l1215:
+   503                           
+   504                           ; Switch size 1, requested type "simple"
+   505                           ; Number of cases is 3, Range of values is 0 to 2
+   506                           ; switch strategies available:
+   507                           ; Name         Instructions Cycles
+   508                           ; simple_byte           10     6 (average)
+   509                           ;	Chosen strategy is simple_byte
+   510  00018E  5020               	movf	??_main^0,w,c
+   511  000190  0A00               	xorlw	0	; case 0
+   512  000192  B4D8               	btfsc	status,2,c
+   513  000194  EF69  F000         	goto	l981
+   514  000198  0A01               	xorlw	1	; case 1
+   515  00019A  B4D8               	btfsc	status,2,c
+   516  00019C  EF90  F000         	goto	l987
+   517  0001A0  0A03               	xorlw	3	; case 2
+   518  0001A2  B4D8               	btfsc	status,2,c
+   519  0001A4  EFB3  F000         	goto	l999
+   520  0001A8  EF74  F001         	goto	l1065
+   521  0001AC                     l1011:
+   522                           
+   523                           ;main.c: 94:                 if (button == 3){
+   524  0001AC  0E03               	movlw	3
+   525  0001AE  1814               	xorwf	_button^0,w,c
+   526  0001B0  A4D8               	btfss	status,2,c
+   527  0001B2  EFDD  F000         	goto	u251
+   528  0001B6  EFDF  F000         	goto	u250
+   529  0001BA                     u251:
+   530  0001BA  EFF0  F000         	goto	l1025
+   531  0001BE                     u250:
+   532  0001BE                     
+   533                           ;main.c: 95:                     if (state_butA == PRESS) LATD = LED_display--;
+   534  0001BE  5023               	movf	main@state_butA^0,w,c
+   535  0001C0  A4D8               	btfss	status,2,c
+   536  0001C2  EFE5  F000         	goto	u261
+   537  0001C6  EFE7  F000         	goto	u260
+   538  0001CA                     u261:
+   539  0001CA  EFEA  F000         	goto	l1019
+   540  0001CE                     u260:
+   541  0001CE  C016  FF8C         	movff	_LED_display,3980	;volatile
+   542  0001D2  0616               	decf	_LED_display^0,f,c
+   543  0001D4                     l1019:
+   544                           
+   545                           ;main.c: 96:                     state_machine = NORMAL;
+   546  0001D4  0E00               	movlw	0
+   547  0001D6  6E19               	movwf	_state_machine^0,c
+   548  0001D8                     
+   549                           ;main.c: 97:                     state_butB = PRESS;
+   550  0001D8  0E00               	movlw	0
+   551  0001DA  6E22               	movwf	main@state_butB^0,c
+   552  0001DC  EF1D  F000         	goto	l959
+   553  0001E0                     l1025:
+   554  0001E0  0414               	decf	_button^0,w,c
+   555  0001E2  A4D8               	btfss	status,2,c
+   556  0001E4  EFF6  F000         	goto	u271
+   557  0001E8  EFF8  F000         	goto	u270
+   558  0001EC                     u271:
+   559  0001EC  EF5B  F001         	goto	l1061
+   560  0001F0                     u270:
+   561  0001F0                     
+   562                           ;main.c: 101:                     state_machine = BUTTONA;
+   563  0001F0  0E01               	movlw	1
+   564  0001F2  6E19               	movwf	_state_machine^0,c
+   565  0001F4                     
+   566                           ;main.c: 102:                     count_but2 = 0;
+   567  0001F4  EE20  F001         	lfsr	2,_count_but2
+   568  0001F8  0E07               	movlw	7
+   569  0001FA                     u281:
+   570  0001FA  6ADE               	clrf	postinc2,c
+   571  0001FC  06E8               	decf	wreg,f,c
+   572  0001FE  E2FD               	bc	u281
+   573  000200                     
+   574                           ;main.c: 103:                     state_butB = PRESS;
+   575  000200  0E00               	movlw	0
+   576  000202  6E22               	movwf	main@state_butB^0,c
+   577                           
+   578                           ;main.c: 104:                 }
+   579  000204  EF74  F001         	goto	l1065
+   580  000208                     l1033:
+   581                           
+   582                           ;main.c: 107:                         if (count_but2 > 1000/10 && count_but2 < 3000/10) 
+      +                          state_butB = HOLD_FIRST;
+   583  000208  5008               	movf	(_count_but2+7)^0,w,c
+   584  00020A  1007               	iorwf	(_count_but2+6)^0,w,c
+   585  00020C  1006               	iorwf	(_count_but2+5)^0,w,c
+   586  00020E  1005               	iorwf	(_count_but2+4)^0,w,c
+   587  000210  1004               	iorwf	(_count_but2+3)^0,w,c
+   588  000212  1003               	iorwf	(_count_but2+2)^0,w,c
+   589  000214  1002               	iorwf	(_count_but2+1)^0,w,c
+   590  000216  E109               	bnz	u290
+   591  000218  0E65               	movlw	101
+   592  00021A  5C01               	subwf	_count_but2^0,w,c
+   593  00021C  A0D8               	btfss	status,0,c
+   594  00021E  EF13  F001         	goto	u291
+   595  000222  EF15  F001         	goto	u290
+   596  000226                     u291:
+   597  000226  EF3E  F000         	goto	l65
+   598  00022A                     u290:
+   599  00022A  5008               	movf	(_count_but2+7)^0,w,c
+   600  00022C  1007               	iorwf	(_count_but2+6)^0,w,c
+   601  00022E  1006               	iorwf	(_count_but2+5)^0,w,c
+   602  000230  1005               	iorwf	(_count_but2+4)^0,w,c
+   603  000232  1004               	iorwf	(_count_but2+3)^0,w,c
+   604  000234  1003               	iorwf	(_count_but2+2)^0,w,c
+   605  000236  E109               	bnz	u301
+   606  000238  0E2C               	movlw	44
+   607  00023A  5C01               	subwf	_count_but2^0,w,c
+   608  00023C  0E01               	movlw	1
+   609  00023E  5802               	subwfb	(_count_but2+1)^0,w,c
+   610  000240  B0D8               	btfsc	status,0,c
+   611  000242  EF25  F001         	goto	u301
+   612  000246  EF27  F001         	goto	u300
+   613  00024A                     u301:
+   614  00024A  EF3E  F000         	goto	l65
+   615  00024E                     u300:
+   616  00024E  0E01               	movlw	1
+   617  000250  6E22               	movwf	main@state_butB^0,c
+   618  000252  EF74  F001         	goto	l1065
+   619  000256                     l1039:
+   620                           
+   621                           ;main.c: 110:                         if (LED_count > 500/10) {
+   622  000256  0E32               	movlw	50
+   623  000258  6417               	cpfsgt	_LED_count^0,c
+   624  00025A  EF31  F001         	goto	u311
+   625  00025E  EF33  F001         	goto	u310
+   626  000262                     u311:
+   627  000262  EF38  F001         	goto	l1047
+   628  000266                     u310:
+   629  000266                     
+   630                           ;main.c: 111:                             LATD = LED_display--;
+   631  000266  C016  FF8C         	movff	_LED_display,3980	;volatile
+   632  00026A  0616               	decf	_LED_display^0,f,c
+   633  00026C                     
+   634                           ;main.c: 112:                             LED_count = 0;
+   635  00026C  0E00               	movlw	0
+   636  00026E  6E17               	movwf	_LED_count^0,c
+   637  000270                     l1047:
+   638                           
+   639                           ;main.c: 114:                         if (count_but2 > 3000/10) state_butB = HOLD_SECOND
+      +                          ;
+   640  000270  5008               	movf	(_count_but2+7)^0,w,c
+   641  000272  1007               	iorwf	(_count_but2+6)^0,w,c
+   642  000274  1006               	iorwf	(_count_but2+5)^0,w,c
+   643  000276  1005               	iorwf	(_count_but2+4)^0,w,c
+   644  000278  1004               	iorwf	(_count_but2+3)^0,w,c
+   645  00027A  1003               	iorwf	(_count_but2+2)^0,w,c
+   646  00027C  E10B               	bnz	u320
+   647  00027E  0E2D               	movlw	45
+   648  000280  5C01               	subwf	_count_but2^0,w,c
+   649  000282  0E01               	movlw	1
+   650  000284  5802               	subwfb	(_count_but2+1)^0,w,c
+   651  000286  A0D8               	btfss	status,0,c
+   652  000288  EF48  F001         	goto	u321
+   653  00028C  EF4A  F001         	goto	u320
+   654  000290                     u321:
+   655  000290  EF3E  F000         	goto	l65
+   656  000294                     u320:
+   657  000294  0E02               	movlw	2
+   658  000296  6E22               	movwf	main@state_butB^0,c
+   659  000298  EF74  F001         	goto	l1065
+   660  00029C                     l1051:
+   661                           
+   662                           ;main.c: 117:                         if (LED_count > 100/10) {
+   663  00029C  0E0A               	movlw	10
+   664  00029E  6417               	cpfsgt	_LED_count^0,c
+   665  0002A0  EF54  F001         	goto	u331
+   666  0002A4  EF56  F001         	goto	u330
+   667  0002A8                     u331:
+   668  0002A8  EF3E  F000         	goto	l65
+   669  0002AC                     u330:
+   670  0002AC                     
+   671                           ;main.c: 118:                             LATD = LED_display--;
+   672  0002AC  C016  FF8C         	movff	_LED_display,3980	;volatile
+   673  0002B0  0616               	decf	_LED_display^0,f,c
+   674  0002B2  EFAF  F000         	goto	l997
+   675  0002B6                     l1061:
+   676  0002B6  5022               	movf	main@state_butB^0,w,c
+   677  0002B8  6E20               	movwf	??_main^0,c
+   678  0002BA  6A21               	clrf	(??_main+1)^0,c
+   679                           
+   680                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   681                           ; Switch size 1, requested type "simple"
+   682                           ; Number of cases is 1, Range of values is 0 to 0
+   683                           ; switch strategies available:
+   684                           ; Name         Instructions Cycles
+   685                           ; simple_byte            4     3 (average)
+   686                           ;	Chosen strategy is simple_byte
+   687  0002BC  5021               	movf	(??_main+1)^0,w,c
+   688  0002BE  0A00               	xorlw	0	; case 0
+   689  0002C0  B4D8               	btfsc	status,2,c
+   690  0002C2  EF65  F001         	goto	l1217
+   691  0002C6  EF74  F001         	goto	l1065
+   692  0002CA                     l1217:
+   693                           
+   694                           ; Switch size 1, requested type "simple"
+   695                           ; Number of cases is 3, Range of values is 0 to 2
+   696                           ; switch strategies available:
+   697                           ; Name         Instructions Cycles
+   698                           ; simple_byte           10     6 (average)
+   699                           ;	Chosen strategy is simple_byte
+   700  0002CA  5020               	movf	??_main^0,w,c
+   701  0002CC  0A00               	xorlw	0	; case 0
+   702  0002CE  B4D8               	btfsc	status,2,c
+   703  0002D0  EF04  F001         	goto	l1033
+   704  0002D4  0A01               	xorlw	1	; case 1
+   705  0002D6  B4D8               	btfsc	status,2,c
+   706  0002D8  EF2B  F001         	goto	l1039
+   707  0002DC  0A03               	xorlw	3	; case 2
+   708  0002DE  B4D8               	btfsc	status,2,c
+   709  0002E0  EF4E  F001         	goto	l1051
+   710  0002E4  EF74  F001         	goto	l1065
+   711  0002E8                     l1065:
+   712  0002E8  5019               	movf	_state_machine^0,w,c
+   713  0002EA  6E20               	movwf	??_main^0,c
+   714  0002EC  6A21               	clrf	(??_main+1)^0,c
+   715                           
+   716                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   717                           ; Switch size 1, requested type "simple"
+   718                           ; Number of cases is 1, Range of values is 0 to 0
+   719                           ; switch strategies available:
+   720                           ; Name         Instructions Cycles
+   721                           ; simple_byte            4     3 (average)
+   722                           ;	Chosen strategy is simple_byte
+   723  0002EE  5021               	movf	(??_main+1)^0,w,c
+   724  0002F0  0A00               	xorlw	0	; case 0
+   725  0002F2  B4D8               	btfsc	status,2,c
+   726  0002F4  EF7E  F001         	goto	l1219
+   727  0002F8  EF74  F001         	goto	l1065
+   728  0002FC                     l1219:
+   729                           
+   730                           ; Switch size 1, requested type "simple"
+   731                           ; Number of cases is 3, Range of values is 0 to 2
+   732                           ; switch strategies available:
+   733                           ; Name         Instructions Cycles
+   734                           ; simple_byte           10     6 (average)
+   735                           ;	Chosen strategy is simple_byte
+   736  0002FC  5020               	movf	??_main^0,w,c
+   737  0002FE  0A00               	xorlw	0	; case 0
+   738  000300  B4D8               	btfsc	status,2,c
+   739  000302  EF25  F000         	goto	l963
+   740  000306  0A01               	xorlw	1	; case 1
+   741  000308  B4D8               	btfsc	status,2,c
+   742  00030A  EF40  F000         	goto	l965
+   743  00030E  0A03               	xorlw	3	; case 2
+   744  000310  B4D8               	btfsc	status,2,c
+   745  000312  EFD6  F000         	goto	l1011
+   746  000316  EF74  F001         	goto	l1065
+   747  00031A  EF07  F000         	goto	start
+   748  00031E                     __end_of_main:
+   749                           	opt callstack 0
+   750                           
+   751 ;; *************** function _initial *****************
+   752 ;; Defined at:
+   753 ;;		line 5 in file "initial.c"
+   754 ;; Parameters:    Size  Location     Type
+   755 ;;		None
+   756 ;; Auto vars:     Size  Location     Type
+   757 ;;		None
+   758 ;; Return value:  Size  Location     Type
+   759 ;;                  1    wreg      void 
+   760 ;; Registers used:
+   761 ;;		wreg, status,2
+   762 ;; Tracked objects:
+   763 ;;		On entry : 0/0
+   764 ;;		On exit  : 0/0
+   765 ;;		Unchanged: 0/0
+   766 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   767 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   768 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   769 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   770 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   771 ;;Total ram usage:        0 bytes
+   772 ;; Hardware stack levels used:    1
+   773 ;; Hardware stack levels required when called:    2
+   774 ;; This function calls:
+   775 ;;		Nothing
+   776 ;; This function is called by:
+   777 ;;		_main
+   778 ;; This function uses a non-reentrant model
+   779 ;;
+   780                           
+   781                           	psect	text1
+   782  000514                     __ptext1:
+   783                           	opt callstack 0
+   784  000514                     _initial:
+   785                           	opt callstack 28
+   786  000514                     
+   787                           ;initial.c: 6:     OSCCON = 0b00100111;
+   788  000514  0E27               	movlw	39
+   789  000516  6ED3               	movwf	211,c	;volatile
+   790                           
+   791                           ;initial.c: 7:     T0CON = 0b11000101;
+   792  000518  0EC5               	movlw	197
+   793  00051A  6ED5               	movwf	213,c	;volatile
+   794  00051C                     
+   795                           ;initial.c: 8:     INTCONbits.TMR0IE = 1;
+   796  00051C  8AF2               	bsf	242,5,c	;volatile
+   797  00051E                     
+   798                           ;initial.c: 9:     INTCONbits.TMR0IF = 0;
+   799  00051E  94F2               	bcf	242,2,c	;volatile
+   800  000520                     
+   801                           ;initial.c: 10:     INTCONbits.GIE = 1;
+   802  000520  8EF2               	bsf	242,7,c	;volatile
+   803  000522                     
+   804                           ;initial.c: 11:     TRISAbits.RA5 = 1;
+   805  000522  8A92               	bsf	146,5,c	;volatile
+   806  000524                     
+   807                           ;initial.c: 12:     TRISBbits.RB0 = 1;
+   808  000524  8093               	bsf	147,0,c	;volatile
+   809                           
+   810                           ;initial.c: 13:     TRISD = 0x00;
+   811  000526  0E00               	movlw	0
+   812  000528  6E95               	movwf	149,c	;volatile
+   813                           
+   814                           ;initial.c: 14:     PORTD = 0x00;
+   815  00052A  0E00               	movlw	0
+   816  00052C  6E83               	movwf	131,c	;volatile
+   817                           
+   818                           ;initial.c: 15:     ADCON1 = 0b00001111;
+   819  00052E  0E0F               	movlw	15
+   820  000530  6EC1               	movwf	193,c	;volatile
+   821                           
+   822                           ;initial.c: 16:     TMR0L = 0xFFFF - (unsigned int)(0.997*10);
+   823  000532  0EF6               	movlw	246
+   824  000534  6ED6               	movwf	214,c	;volatile
+   825  000536                     
+   826                           ;initial.c: 17:     TMR0H = (0xFFFF - (unsigned int)(0.997*10))>>8;
+   827  000536  68D7               	setf	215,c	;volatile
+   828  000538  0012               	return		;funcret
+   829  00053A                     __end_of_initial:
+   830                           	opt callstack 0
+   831                           
+   832 ;; *************** function _counting *****************
+   833 ;; Defined at:
+   834 ;;		line 21 in file "main.c"
+   835 ;; Parameters:    Size  Location     Type
+   836 ;;		None
+   837 ;; Auto vars:     Size  Location     Type
+   838 ;;		None
+   839 ;; Return value:  Size  Location     Type
+   840 ;;                  1    wreg      void 
+   841 ;; Registers used:
+   842 ;;		wreg, status,2, status,0, cstack
+   843 ;; Tracked objects:
+   844 ;;		On entry : 0/0
+   845 ;;		On exit  : 0/0
+   846 ;;		Unchanged: 0/0
+   847 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   848 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   849 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   850 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   851 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   852 ;;Total ram usage:        0 bytes
+   853 ;; Hardware stack levels used:    1
+   854 ;; Hardware stack levels required when called:    1
+   855 ;; This function calls:
+   856 ;;		_read_all_button
+   857 ;;		_read_button_A
+   858 ;;		_read_button_B
+   859 ;; This function is called by:
+   860 ;;		Interrupt level 2
+   861 ;; This function uses a non-reentrant model
+   862 ;;
+   863                           
+   864                           	psect	intcode
+   865  000008                     __pintcode:
+   866                           	opt callstack 0
+   867  000008                     _counting:
+   868                           	opt callstack 28
+   869                           
+   870                           ;incstack = 0
+   871  000008  8228               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+   872  00000A  ED8F  F001         	call	int_func,f	;refresh shadow registers
+   873                           
+   874                           	psect	intcode_body
+   875  00031E                     __pintcode_body:
+   876                           	opt callstack 28
+   877  00031E                     int_func:
+   878                           	opt callstack 28
+   879  00031E  0006               	pop		; remove dummy address from shadow register refresh
+   880  000320                     
+   881                           ;main.c: 22:     if (INTCONbits.TMR0IF && INTCONbits.TMR0IE){
+   882  000320  A4F2               	btfss	242,2,c	;volatile
+   883  000322  EF95  F001         	goto	i2u40_41
+   884  000326  EF97  F001         	goto	i2u40_40
+   885  00032A                     i2u40_41:
+   886  00032A  EFB6  F001         	goto	i2l1175
+   887  00032E                     i2u40_40:
+   888  00032E  AAF2               	btfss	242,5,c	;volatile
+   889  000330  EF9C  F001         	goto	i2u41_41
+   890  000334  EF9E  F001         	goto	i2u41_40
+   891  000338                     i2u41_41:
+   892  000338  EFB6  F001         	goto	i2l1175
+   893  00033C                     i2u41_40:
+   894  00033C                     
+   895                           ;main.c: 23:         TMR0L = 0xFFFF - (unsigned int)(0.997*10);
+   896  00033C  0EF6               	movlw	246
+   897  00033E  6ED6               	movwf	214,c	;volatile
+   898  000340                     
+   899                           ;main.c: 24:         TMR0H = (0xFFFF - (unsigned int)(0.997*10))>>8;
+   900  000340  68D7               	setf	215,c	;volatile
+   901  000342                     
+   902                           ;main.c: 25:         button = read_all_button(read_button_A(),read_button_B());
+   903  000342  EC24  F002         	call	_read_button_A	;wreg free
+   904  000346  C01A  F01C         	movff	?_read_button_A,read_all_button@button_A
+   905  00034A  C01B  F01D         	movff	?_read_button_A+1,read_all_button@button_A+1
+   906  00034E  ECFC  F001         	call	_read_button_B	;wreg free
+   907  000352  C01A  F01E         	movff	?_read_button_B,read_all_button@button_B
+   908  000356  C01B  F01F         	movff	?_read_button_B+1,read_all_button@button_B+1
+   909  00035A  EC4C  F002         	call	_read_all_button	;wreg free
+   910  00035E  501C               	movf	?_read_all_button^0,w,c
+   911  000360  6E14               	movwf	_button^0,c
+   912  000362                     
+   913                           ;main.c: 26:         count_up = 1;
+   914  000362  0E01               	movlw	1
+   915  000364  6E15               	movwf	_count_up^0,c
+   916  000366                     
+   917                           ;main.c: 27:         LED_count_sig = 1;
+   918  000366  0E01               	movlw	1
+   919  000368  6E13               	movwf	_LED_count_sig^0,c
+   920  00036A                     
+   921                           ;main.c: 28:         INTCONbits.TMR0IF = 0;
+   922  00036A  94F2               	bcf	242,2,c	;volatile
+   923  00036C                     i2l1175:
+   924                           
+   925                           ;main.c: 30:     if (state_machine == BUTTONA && count_up == 1){
+   926  00036C  0419               	decf	_state_machine^0,w,c
+   927  00036E  A4D8               	btfss	status,2,c
+   928  000370  EFBC  F001         	goto	i2u42_41
+   929  000374  EFBE  F001         	goto	i2u42_40
+   930  000378                     i2u42_41:
+   931  000378  EFD2  F001         	goto	i2l1183
+   932  00037C                     i2u42_40:
+   933  00037C  0415               	decf	_count_up^0,w,c
+   934  00037E  A4D8               	btfss	status,2,c
+   935  000380  EFC4  F001         	goto	i2u43_41
+   936  000384  EFC6  F001         	goto	i2u43_40
+   937  000388                     i2u43_41:
+   938  000388  EFD2  F001         	goto	i2l1183
+   939  00038C                     i2u43_40:
+   940  00038C                     
+   941                           ;main.c: 31:         count_but1 ++;
+   942  00038C  0E01               	movlw	1
+   943  00038E  2609               	addwf	_count_but1^0,f,c
+   944  000390  0E00               	movlw	0
+   945  000392  220A               	addwfc	(_count_but1+1)^0,f,c
+   946  000394  220B               	addwfc	(_count_but1+2)^0,f,c
+   947  000396  220C               	addwfc	(_count_but1+3)^0,f,c
+   948  000398  220D               	addwfc	(_count_but1+4)^0,f,c
+   949  00039A  220E               	addwfc	(_count_but1+5)^0,f,c
+   950  00039C  220F               	addwfc	(_count_but1+6)^0,f,c
+   951  00039E  2210               	addwfc	(_count_but1+7)^0,f,c
+   952  0003A0                     
+   953                           ;main.c: 32:         count_up = 0;
+   954  0003A0  0E00               	movlw	0
+   955  0003A2  6E15               	movwf	_count_up^0,c
+   956  0003A4                     i2l1183:
+   957                           
+   958                           ;main.c: 34:     if (state_machine == BUTTONB && count_up == 1){
+   959  0003A4  0E02               	movlw	2
+   960  0003A6  1819               	xorwf	_state_machine^0,w,c
+   961  0003A8  A4D8               	btfss	status,2,c
+   962  0003AA  EFD9  F001         	goto	i2u44_41
+   963  0003AE  EFDB  F001         	goto	i2u44_40
+   964  0003B2                     i2u44_41:
+   965  0003B2  EFEF  F001         	goto	i2l1191
+   966  0003B6                     i2u44_40:
+   967  0003B6  0415               	decf	_count_up^0,w,c
+   968  0003B8  A4D8               	btfss	status,2,c
+   969  0003BA  EFE1  F001         	goto	i2u45_41
+   970  0003BE  EFE3  F001         	goto	i2u45_40
+   971  0003C2                     i2u45_41:
+   972  0003C2  EFEF  F001         	goto	i2l1191
+   973  0003C6                     i2u45_40:
+   974  0003C6                     
+   975                           ;main.c: 35:         count_but2 ++;
+   976  0003C6  0E01               	movlw	1
+   977  0003C8  2601               	addwf	_count_but2^0,f,c
+   978  0003CA  0E00               	movlw	0
+   979  0003CC  2202               	addwfc	(_count_but2+1)^0,f,c
+   980  0003CE  2203               	addwfc	(_count_but2+2)^0,f,c
+   981  0003D0  2204               	addwfc	(_count_but2+3)^0,f,c
+   982  0003D2  2205               	addwfc	(_count_but2+4)^0,f,c
+   983  0003D4  2206               	addwfc	(_count_but2+5)^0,f,c
+   984  0003D6  2207               	addwfc	(_count_but2+6)^0,f,c
+   985  0003D8  2208               	addwfc	(_count_but2+7)^0,f,c
+   986  0003DA                     
+   987                           ;main.c: 36:         count_up = 0;
+   988  0003DA  0E00               	movlw	0
+   989  0003DC  6E15               	movwf	_count_up^0,c
+   990  0003DE                     i2l1191:
+   991                           
+   992                           ;main.c: 38:     if (LED_count_sig == 1){
+   993  0003DE  0413               	decf	_LED_count_sig^0,w,c
+   994  0003E0  A4D8               	btfss	status,2,c
+   995  0003E2  EFF5  F001         	goto	i2u46_41
+   996  0003E6  EFF7  F001         	goto	i2u46_40
+   997  0003EA                     i2u46_41:
+   998  0003EA  EFFA  F001         	goto	i2l55
+   999  0003EE                     i2u46_40:
+  1000  0003EE                     
+  1001                           ;main.c: 39:         LED_count++;
+  1002  0003EE  2A17               	incf	_LED_count^0,f,c
+  1003  0003F0                     
+  1004                           ;main.c: 40:         LED_count_sig = 0;
+  1005  0003F0  0E00               	movlw	0
+  1006  0003F2  6E13               	movwf	_LED_count_sig^0,c
+  1007  0003F4                     i2l55:
+  1008  0003F4  9228               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1009  0003F6  0011               	retfie		f
+  1010  0003F8                     __end_of_counting:
+  1011                           	opt callstack 0
+  1012                           
+  1013 ;; *************** function _read_button_B *****************
+  1014 ;; Defined at:
+  1015 ;;		line 14 in file "button.c"
+  1016 ;; Parameters:    Size  Location     Type
+  1017 ;;		None
+  1018 ;; Auto vars:     Size  Location     Type
+  1019 ;;		None
+  1020 ;; Return value:  Size  Location     Type
+  1021 ;;                  2    0[COMRAM] int 
+  1022 ;; Registers used:
+  1023 ;;		wreg, status,2, status,0
+  1024 ;; Tracked objects:
+  1025 ;;		On entry : 0/0
+  1026 ;;		On exit  : 0/0
+  1027 ;;		Unchanged: 0/0
+  1028 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1029 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1030 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1031 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1032 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1033 ;;Total ram usage:        2 bytes
+  1034 ;; Hardware stack levels used:    1
+  1035 ;; This function calls:
+  1036 ;;		Nothing
+  1037 ;; This function is called by:
+  1038 ;;		_counting
+  1039 ;; This function uses a non-reentrant model
+  1040 ;;
+  1041                           
+  1042                           	psect	text3
+  1043  0003F8                     __ptext3:
+  1044                           	opt callstack 0
+  1045  0003F8                     _read_button_B:
+  1046                           	opt callstack 28
+  1047  0003F8                     
+  1048                           ;button.c: 15:     first_read_B = second_read_B;
+  1049  0003F8  C024  F025         	movff	_second_read_B,_first_read_B
+  1050  0003FC                     
+  1051                           ;button.c: 16:     second_read_B = PORTBbits.RB0;
+  1052  0003FC  0E00               	movlw	0
+  1053  0003FE  B081               	btfsc	129,0,c	;volatile
+  1054  000400  0E01               	movlw	1
+  1055  000402  6E24               	movwf	_second_read_B^0,c
+  1056  000404                     
+  1057                           ;button.c: 17:     if (first_read_B == second_read_B){
+  1058  000404  5024               	movf	_second_read_B^0,w,c
+  1059  000406  1825               	xorwf	_first_read_B^0,w,c
+  1060  000408  A4D8               	btfss	status,2,c
+  1061  00040A  EF09  F002         	goto	i2u36_41
+  1062  00040E  EF0B  F002         	goto	i2u36_40
+  1063  000412                     i2u36_41:
+  1064  000412  EF1F  F002         	goto	i2l1139
+  1065  000416                     i2u36_40:
+  1066  000416                     
+  1067                           ;button.c: 18:         if(second_read_B == 0)return 1;
+  1068  000416  5024               	movf	_second_read_B^0,w,c
+  1069  000418  A4D8               	btfss	status,2,c
+  1070  00041A  EF11  F002         	goto	i2u37_41
+  1071  00041E  EF13  F002         	goto	i2u37_40
+  1072  000422                     i2u37_41:
+  1073  000422  EF19  F002         	goto	i2l1135
+  1074  000426                     i2u37_40:
+  1075  000426  0E00               	movlw	0
+  1076  000428  6E1B               	movwf	(?_read_button_B+1)^0,c
+  1077  00042A  0E01               	movlw	1
+  1078  00042C  6E1A               	movwf	?_read_button_B^0,c
+  1079  00042E  EF23  F002         	goto	i2l155
+  1080  000432                     i2l1135:
+  1081  000432  0E00               	movlw	0
+  1082  000434  6E1B               	movwf	(?_read_button_B+1)^0,c
+  1083  000436  0E02               	movlw	2
+  1084  000438  6E1A               	movwf	?_read_button_B^0,c
+  1085  00043A  EF23  F002         	goto	i2l155
+  1086  00043E                     i2l1139:
+  1087                           
+  1088                           ;button.c: 21:     return 0;
+  1089  00043E  0E00               	movlw	0
+  1090  000440  6E1B               	movwf	(?_read_button_B+1)^0,c
+  1091  000442  0E00               	movlw	0
+  1092  000444  6E1A               	movwf	?_read_button_B^0,c
+  1093  000446                     i2l155:
+  1094  000446  0012               	return		;funcret
+  1095  000448                     __end_of_read_button_B:
+  1096                           	opt callstack 0
+  1097                           
+  1098 ;; *************** function _read_button_A *****************
+  1099 ;; Defined at:
+  1100 ;;		line 5 in file "button.c"
+  1101 ;; Parameters:    Size  Location     Type
+  1102 ;;		None
+  1103 ;; Auto vars:     Size  Location     Type
+  1104 ;;		None
+  1105 ;; Return value:  Size  Location     Type
+  1106 ;;                  2    0[COMRAM] int 
+  1107 ;; Registers used:
+  1108 ;;		wreg, status,2, status,0
+  1109 ;; Tracked objects:
+  1110 ;;		On entry : 0/0
+  1111 ;;		On exit  : 0/0
+  1112 ;;		Unchanged: 0/0
+  1113 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1114 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1115 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1116 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1117 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1118 ;;Total ram usage:        2 bytes
+  1119 ;; Hardware stack levels used:    1
+  1120 ;; This function calls:
+  1121 ;;		Nothing
+  1122 ;; This function is called by:
+  1123 ;;		_counting
+  1124 ;; This function uses a non-reentrant model
+  1125 ;;
+  1126                           
+  1127                           	psect	text4
+  1128  000448                     __ptext4:
+  1129                           	opt callstack 0
+  1130  000448                     _read_button_A:
+  1131                           	opt callstack 28
+  1132  000448                     
+  1133                           ;button.c: 6:     first_read_A = second_read_A;
+  1134  000448  C026  F027         	movff	_second_read_A,_first_read_A
+  1135  00044C                     
+  1136                           ;button.c: 7:     second_read_A = PORTAbits.RA5;
+  1137  00044C  0E00               	movlw	0
+  1138  00044E  BA80               	btfsc	128,5,c	;volatile
+  1139  000450  0E01               	movlw	1
+  1140  000452  6E26               	movwf	_second_read_A^0,c
+  1141  000454                     
+  1142                           ;button.c: 8:     if (first_read_A == second_read_A){
+  1143  000454  5026               	movf	_second_read_A^0,w,c
+  1144  000456  1827               	xorwf	_first_read_A^0,w,c
+  1145  000458  A4D8               	btfss	status,2,c
+  1146  00045A  EF31  F002         	goto	i2u34_41
+  1147  00045E  EF33  F002         	goto	i2u34_40
+  1148  000462                     i2u34_41:
+  1149  000462  EF47  F002         	goto	i2l1117
+  1150  000466                     i2u34_40:
+  1151  000466                     
+  1152                           ;button.c: 9:         if(second_read_A == 0)return 1;
+  1153  000466  5026               	movf	_second_read_A^0,w,c
+  1154  000468  A4D8               	btfss	status,2,c
+  1155  00046A  EF39  F002         	goto	i2u35_41
+  1156  00046E  EF3B  F002         	goto	i2u35_40
+  1157  000472                     i2u35_41:
+  1158  000472  EF41  F002         	goto	i2l1113
+  1159  000476                     i2u35_40:
+  1160  000476  0E00               	movlw	0
+  1161  000478  6E1B               	movwf	(?_read_button_A+1)^0,c
+  1162  00047A  0E01               	movlw	1
+  1163  00047C  6E1A               	movwf	?_read_button_A^0,c
+  1164  00047E  EF4B  F002         	goto	i2l149
+  1165  000482                     i2l1113:
+  1166  000482  0E00               	movlw	0
+  1167  000484  6E1B               	movwf	(?_read_button_A+1)^0,c
+  1168  000486  0E02               	movlw	2
+  1169  000488  6E1A               	movwf	?_read_button_A^0,c
+  1170  00048A  EF4B  F002         	goto	i2l149
+  1171  00048E                     i2l1117:
+  1172                           
+  1173                           ;button.c: 12:     return 0;
+  1174  00048E  0E00               	movlw	0
+  1175  000490  6E1B               	movwf	(?_read_button_A+1)^0,c
+  1176  000492  0E00               	movlw	0
+  1177  000494  6E1A               	movwf	?_read_button_A^0,c
+  1178  000496                     i2l149:
+  1179  000496  0012               	return		;funcret
+  1180  000498                     __end_of_read_button_A:
+  1181                           	opt callstack 0
+  1182                           
+  1183 ;; *************** function _read_all_button *****************
+  1184 ;; Defined at:
+  1185 ;;		line 23 in file "button.c"
+  1186 ;; Parameters:    Size  Location     Type
+  1187 ;;  button_A        2    2[COMRAM] int 
+  1188 ;;  button_B        2    4[COMRAM] int 
+  1189 ;; Auto vars:     Size  Location     Type
+  1190 ;;		None
+  1191 ;; Return value:  Size  Location     Type
+  1192 ;;                  2    2[COMRAM] int 
+  1193 ;; Registers used:
+  1194 ;;		wreg, status,2, status,0
+  1195 ;; Tracked objects:
+  1196 ;;		On entry : 0/0
+  1197 ;;		On exit  : 0/0
+  1198 ;;		Unchanged: 0/0
+  1199 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1200 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1201 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1202 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1203 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1204 ;;Total ram usage:        4 bytes
+  1205 ;; Hardware stack levels used:    1
+  1206 ;; This function calls:
+  1207 ;;		Nothing
+  1208 ;; This function is called by:
+  1209 ;;		_counting
+  1210 ;; This function uses a non-reentrant model
+  1211 ;;
+  1212                           
+  1213                           	psect	text5
+  1214  000498                     __ptext5:
+  1215                           	opt callstack 0
+  1216  000498                     _read_all_button:
+  1217                           	opt callstack 28
+  1218  000498                     
+  1219                           ;button.c: 24:     if (button_A == 1) return 1;
+  1220  000498  041C               	decf	read_all_button@button_A^0,w,c
+  1221  00049A  101D               	iorwf	(read_all_button@button_A+1)^0,w,c
+  1222  00049C  A4D8               	btfss	status,2,c
+  1223  00049E  EF53  F002         	goto	i2u38_41
+  1224  0004A2  EF55  F002         	goto	i2u38_40
+  1225  0004A6                     i2u38_41:
+  1226  0004A6  EF5B  F002         	goto	i2l1149
+  1227  0004AA                     i2u38_40:
+  1228  0004AA  0E00               	movlw	0
+  1229  0004AC  6E1D               	movwf	(?_read_all_button+1)^0,c
+  1230  0004AE  0E01               	movlw	1
+  1231  0004B0  6E1C               	movwf	?_read_all_button^0,c
+  1232  0004B2  EF6E  F002         	goto	i2l160
+  1233  0004B6                     i2l1149:
+  1234                           
+  1235                           ;button.c: 25:     if (button_B == 1) return 2;
+  1236  0004B6  041E               	decf	read_all_button@button_B^0,w,c
+  1237  0004B8  101F               	iorwf	(read_all_button@button_B+1)^0,w,c
+  1238  0004BA  A4D8               	btfss	status,2,c
+  1239  0004BC  EF62  F002         	goto	i2u39_41
+  1240  0004C0  EF64  F002         	goto	i2u39_40
+  1241  0004C4                     i2u39_41:
+  1242  0004C4  EF6A  F002         	goto	i2l1155
+  1243  0004C8                     i2u39_40:
+  1244  0004C8  0E00               	movlw	0
+  1245  0004CA  6E1D               	movwf	(?_read_all_button+1)^0,c
+  1246  0004CC  0E02               	movlw	2
+  1247  0004CE  6E1C               	movwf	?_read_all_button^0,c
+  1248  0004D0  EF6E  F002         	goto	i2l160
+  1249  0004D4                     i2l1155:
+  1250                           
+  1251                           ;button.c: 26:     return 3;
+  1252  0004D4  0E00               	movlw	0
+  1253  0004D6  6E1D               	movwf	(?_read_all_button+1)^0,c
+  1254  0004D8  0E03               	movlw	3
+  1255  0004DA  6E1C               	movwf	?_read_all_button^0,c
+  1256  0004DC                     i2l160:
+  1257  0004DC  0012               	return		;funcret
+  1258  0004DE                     __end_of_read_all_button:
+  1259                           	opt callstack 0
+  1260  0000                     
+  1261                           	psect	rparam
+  1262  0000                     
+  1263                           	psect	temp
+  1264  000028                     btemp:
+  1265                           	opt callstack 0
+  1266  000028                     	ds	1
+  1267  0000                     int$flags	set	btemp
+  1268  0000                     wtemp8	set	btemp+1
+  1269  0000                     ttemp5	set	btemp+1
+  1270  0000                     ttemp6	set	btemp+4
+  1271  0000                     ttemp7	set	btemp+8
+  1272                           tosu	equ	0xFFF
+  1273                           tosh	equ	0xFFE
+  1274                           tosl	equ	0xFFD
+  1275                           stkptr	equ	0xFFC
+  1276                           pclatu	equ	0xFFB
+  1277                           pclath	equ	0xFFA
+  1278                           pcl	equ	0xFF9
+  1279                           tblptru	equ	0xFF8
+  1280                           tblptrh	equ	0xFF7
+  1281                           tblptrl	equ	0xFF6
+  1282                           tablat	equ	0xFF5
+  1283                           prodh	equ	0xFF4
+  1284                           prodl	equ	0xFF3
+  1285                           indf0	equ	0xFEF
+  1286                           postinc0	equ	0xFEE
+  1287                           postdec0	equ	0xFED
+  1288                           preinc0	equ	0xFEC
+  1289                           plusw0	equ	0xFEB
+  1290                           fsr0h	equ	0xFEA
+  1291                           fsr0l	equ	0xFE9
+  1292                           wreg	equ	0xFE8
+  1293                           indf1	equ	0xFE7
+  1294                           postinc1	equ	0xFE6
+  1295                           postdec1	equ	0xFE5
+  1296                           preinc1	equ	0xFE4
+  1297                           plusw1	equ	0xFE3
+  1298                           fsr1h	equ	0xFE2
+  1299                           fsr1l	equ	0xFE1
+  1300                           bsr	equ	0xFE0
+  1301                           indf2	equ	0xFDF
+  1302                           postinc2	equ	0xFDE
+  1303                           postdec2	equ	0xFDD
+  1304                           preinc2	equ	0xFDC
+  1305                           plusw2	equ	0xFDB
+  1306                           fsr2h	equ	0xFDA
+  1307                           fsr2l	equ	0xFD9
+  1308                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        4
+    BSS         25
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     10      39
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _counting in COMRAM
+
+    _counting->_read_all_button
+    _read_all_button->_read_button_A
+    _read_all_button->_read_button_B
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _counting in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _counting in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _counting in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _counting in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _counting in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _counting in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _counting in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _counting in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _counting in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _counting in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _counting in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _counting in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _counting in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _counting in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _counting in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _counting in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 4     4      0      60
+                                              6 COMRAM     4     4      0
+                            _initial
+ ---------------------------------------------------------------------------------
+ (1) _initial                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _counting                                             0     0      0     196
+                    _read_all_button
+                      _read_button_A
+                      _read_button_B
+ ---------------------------------------------------------------------------------
+ (3) _read_button_B                                        2     0      2       0
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (3) _read_button_A                                        2     0      2       0
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (3) _read_all_button                                      4     0      4     196
+                                              2 COMRAM     4     0      4
+                      _read_button_A (ARG)
+                      _read_button_B (ARG)
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _initial
+
+ _counting (ROOT)
+   _read_all_button
+     _read_button_A (ARG)
+     _read_button_B (ARG)
+   _read_button_A
+   _read_button_B
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F5F      0       0      37        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK14          100      0       0      33        0.0%
+BANK14             100      0       0      34        0.0%
+BITBANK13          100      0       0      30        0.0%
+BANK13             100      0       0      31        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK15           60      0       0      35        0.0%
+BANK15              60      0       0      36        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E      A      27       1       41.5%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      27      32        0.0%
+DATA                 0      0      27       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Mon Sep 23 09:46:09 2019
+
+                      l65 007C                       l132 0538                       l901 051E  
+                     l903 0520                       l905 0522                       l907 0524  
+                     l909 0536                       l951 001A                       l953 0022  
+                     l971 00B4                       l963 004A                       l955 002A  
+                     l981 00D2                       l973 00B8                       l965 0080  
+                     l957 002E                       l949 0012                       l991 0148  
+                     l983 00F4                       l975 00BA                       l967 0092  
+                     l959 003A                       l897 0514                       l993 0158  
+                     l985 0118                       l977 00BE                       l969 00A4  
+                     l899 051C                       l995 015C                       l987 0120  
+                     l979 00C2                       l997 015E                       l989 0144  
+                     l999 0166                       u200 00F4                       u201 00F0  
+                     u210 0118                       u211 0114                       u300 024E  
+                     u220 0144                       u301 024A                       u221 0140  
+                     u141 0034                       u310 0266                       u230 0158  
+                     u311 0262                       u231 0154                       u151 0040  
+                     u320 0294                       u240 0176                       u160 0092  
+                     u321 0290                       u241 0172                       u161 008E  
+                     u330 02AC                       u250 01BE                       u170 00A4  
+                     u331 02A8                       u251 01BA                       u171 00A0  
+                     u260 01CE                       u180 00B4                       u261 01CA  
+                     u181 00B0                       u270 01F0                       u271 01EC  
+                     u191 00C8                       u281 01FA                       u290 022A  
+                     u291 0226                       wreg 000FE8              __CFG_LVP$OFF 000000  
+            __CFG_WDT$OFF 000000                      l1011 01AC                      l1021 01D8  
+                    l1013 01BE                      l1031 0200                      l1015 01CE  
+                    l1041 0266                      l1033 0208                      l1017 01D2  
+                    l1025 01E0                      l1009 017A                      l1051 029C  
+                    l1043 026A                      l1035 022A                      l1027 01F0  
+                    l1019 01D4                      l1053 02AC                      l1045 026C  
+                    l1037 024E                      l1029 01F4                      l1061 02B6  
+                    l1213 005E                      l1055 02B0                      l1047 0270  
+                    l1039 0256                      l1215 018E                      l1217 02CA  
+                    l1049 0294                      l1065 02E8                      l1219 02FC  
+                    _LATD 000F8C                      i2l55 03F4         ??_read_all_button 0020  
+           _state_machine 0019                      _main 0012                      fsr1l 000FE1  
+                    btemp 0028                      start 000E             __CFG_IESO$OFF 000000  
+           __CFG_MCLRE$ON 000000              ___param_bank 000000                     ?_main 001A  
+                   _T0CON 000FD5                     i2l160 04DC                     i2l155 0446  
+                   i2l149 0496                     _TMR0H 000FD7                     _TMR0L 000FD6  
+                   _PORTD 000F83                     _TRISD 000F95             __CFG_PWRT$OFF 000000  
+          __CFG_FCMEN$OFF 000000           __end_of_initial 053A            __CFG_BOREN$OFF 000000  
+                   tablat 000FF5                     ttemp5 0029                     ttemp6 002C  
+                   ttemp7 0030                     status 000FD8                     wtemp8 0029  
+         __initialization 04DE              __end_of_main 031E                    ??_main 0020  
+           __activetblptr 000003                    _ADCON1 000FC1                    i2l1101 044C  
+                  i2l1103 0454                    i2l1113 0482                    i2l1105 0466  
+                  i2l1121 03F8                    i2l1107 0476                    i2l1123 03FC  
+                  i2l1117 048E                    i2l1125 0404                    i2l1151 04C8  
+                  i2l1143 0498                    i2l1135 0432                    i2l1127 0416  
+                  i2l1145 04AA                    i2l1129 0426                    i2l1161 032E  
+                  i2l1155 04D4                    i2l1139 043E                    i2l1171 0366  
+                  i2l1163 033C                    i2l1149 04B6                    i2l1181 03A0  
+                  i2l1173 036A                    i2l1165 0340                    i2l1191 03DE  
+                  i2l1183 03A4                    i2l1167 0342                    i2l1175 036C  
+                  i2l1159 0320                    i2l1193 03EE                    i2l1185 03B6  
+                  i2l1177 037C                    i2l1169 0362                    i2l1099 0448  
+                  i2l1195 03F0                    i2l1187 03C6                    i2l1179 038C  
+                  i2l1189 03DA                    _OSCCON 000FD3             _LED_count_sig 0013  
+          __CFG_XINST$OFF 000000          __end_of_counting 03F8                    _button 0014  
+                  clear_0 0504              __pdataCOMRAM 0024                 ??_initial 0020  
+                  tblptrh 000FF7                    tblptrl 000FF6                    tblptru 000FF8  
+  __size_of_read_button_A 0050    __size_of_read_button_B 0050                __accesstop 0060  
+ __end_of__initialization 050A             ___rparam_used 000001            __pcstackCOMRAM 001A  
+         __CFG_OSC$INTIO7 000000           _read_all_button 0498             _read_button_A 0448  
+           _read_button_B 03F8   read_all_button@button_A 001C   read_all_button@button_B 001E  
+                 i2u40_40 032E                   i2u40_41 032A                   i2u41_40 033C  
+                 i2u41_41 0338                   i2u34_40 0466                   i2u42_40 037C  
+                 i2u34_41 0462                   i2u42_41 0378                   i2u35_40 0476  
+                 i2u43_40 038C                   i2u35_41 0472                   i2u43_41 0388  
+                 i2u36_40 0416                   i2u44_40 03B6                   i2u36_41 0412  
+                 i2u44_41 03B2                   i2u37_40 0426                   i2u45_40 03C6  
+                 i2u37_41 0422                   i2u45_41 03C2                   i2u38_40 04AA  
+                 i2u46_40 03EE                   i2u38_41 04A6                   i2u46_41 03EA  
+                 i2u39_40 04C8                   i2u39_41 04C4                 ?_counting 001A  
+              _count_but1 0009                _count_but2 0001                   __Hparam 0000  
+                 __Lparam 0000            ?_read_button_A 001A            ?_read_button_B 001A  
+ __end_of_read_all_button 04DE                   __pcinit 04DE                   __ramtop 1000  
+                 __ptext0 0012                   __ptext1 0514                   __ptext3 03F8  
+                 __ptext4 0448                   __ptext5 0498                   _initial 0514  
+          __pintcode_body 031E      end_of_initialization 050A                ??_counting 0020  
+               _LED_count 0017                   int_func 031E                   postdec1 000FE5  
+          main@state_butA 0023            main@state_butB 0022                   postinc0 000FEE  
+                 postinc2 000FDE                 _PORTAbits 000F80                 _PORTBbits 000F81  
+               _TRISAbits 000F92                 _TRISBbits 000F93           ??_read_button_A 001C  
+         ??_read_button_B 001C          ?_read_all_button 001C             __pidataCOMRAM 053A  
+     start_initialization 04DE              _first_read_A 0027              _first_read_B 0025  
+           _second_read_A 0026             _second_read_B 0024              _count_period 0018  
+             __pbssCOMRAM 0001         __size_of_counting 03F0                 __pintcode 0008  
+            _read_buttonA 0012              _read_buttonB 0011                  ?_initial 001A  
+               copy_data0 04F2               _LED_display 0016                  __Hrparam 0000  
+                __Lrparam 0000          __size_of_initial 0026                  _count_up 0015  
+                _counting 0008             __size_of_main 030C                  int$flags 0028  
+   __end_of_read_button_A 0498     __end_of_read_button_B 0448                _INTCONbits 000FF2  
+__size_of_read_all_button 0046                  intlevel2 0000  

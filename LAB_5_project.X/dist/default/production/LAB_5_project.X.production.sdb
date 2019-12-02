@@ -1,0 +1,954 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F8722 ]
+[d frameptr 4065 ]
+"28 C:\Users\Dell\MPLABXProjects\LAB_5_project.X/variables.h
+[e E4611 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E4618 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E4622 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"38 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\main.c
+[e E4648 Timer_type `uc
+TIMER_TMR0 0
+TIMER_TMR1 1
+TIMER_TMR2 2
+TIMER_TMR3 3
+TIMER_TMR4 4
+]
+"28 C:\Users\Dell\MPLABXProjects\LAB_5_project.X/variables.h
+[e E4622 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E4629 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E4633 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"28
+[e E4619 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E4626 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E4630 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"17 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[e E4656 Timer_type `uc
+TIMER_TMR0 0
+TIMER_TMR1 1
+TIMER_TMR2 2
+TIMER_TMR3 3
+TIMER_TMR4 4
+]
+"28 C:\Users\Dell\MPLABXProjects\LAB_5_project.X/variables.h
+[e E4441 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E4448 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E4452 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"28
+[e E4615 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E4622 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E4626 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"28
+[e E71 state `uc
+IDLE 0
+HEAT_UP 1
+WORKING 2
+TIME_OUT 3
+SETTING 4
+]
+"31
+[e E78 state_work `uc
+HEATER_WORK 0
+HEATPUMB_WORK 1
+]
+"34
+[e E82 state_setting `uc
+SET_TIME 0
+SET_TEMP 1
+SET_HUMI 2
+]
+"46 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\BBSPI_LCD.c
+[v _LCDInit LCDInit `(v  1 e 1 0 ]
+"71
+[v _InitBBSPI InitBBSPI `(v  1 e 1 0 ]
+"92
+[v _SendByteBBSPI SendByteBBSPI `(v  1 e 1 0 ]
+"124
+[v _Port_BBSPIInit Port_BBSPIInit `(v  1 e 1 0 ]
+"145
+[v _WritePort_BBSPI WritePort_BBSPI `(v  1 e 1 0 ]
+"161
+[v _LCDPutChar LCDPutChar `(v  1 e 1 0 ]
+"180
+[v _LCDPutInst LCDPutInst `(v  1 e 1 0 ]
+"199
+[v _LCDPutStr LCDPutStr `(v  1 e 1 0 ]
+"10 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\button.c
+[v _read_button_A read_button_A `(v  1 e 1 0 ]
+"21
+[v _read_button_B read_button_B `(v  1 e 1 0 ]
+"35
+[v _switch_button_state switch_button_state `(v  1 e 1 0 ]
+"90
+[v _increaseButton increaseButton `(v  1 e 1 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+[v i2___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"12 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\dht.c
+[v _getByte getByte `(uc  1 e 1 0 ]
+"31
+[v _readDHT readDHT `(uc  1 e 1 0 ]
+"71
+[v _readTempAndHumid readTempAndHumid `(v  1 e 1 0 ]
+"14 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\display.c
+[v _initial_display initial_display `(v  1 e 1 0 ]
+"24
+[v _initDisplayDHT initDisplayDHT `(v  1 e 1 0 ]
+"32
+[v _displayDHT displayDHT `(v  1 e 1 0 ]
+"49
+[v _display_state display_state `(v  1 e 1 0 ]
+"15 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[v _start_timer start_timer `(v  1 e 1 0 ]
+"51
+[v _register_timer register_timer `(ul  1 e 4 0 ]
+"102
+[v _remove_timer remove_timer `(i  1 e 2 0 ]
+"138
+[v _timer_ISR timer_ISR `(i  1 e 2 0 ]
+"151
+[v _dispatch dispatch `(v  1 e 1 0 ]
+"161
+[v _add_tasks add_tasks `(v  1 e 1 0 ]
+"17 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\FSM.c
+[v _FSM FSM `(v  1 e 1 0 ]
+"6 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\initial.c
+[v _initial_SYSTEM initial_SYSTEM `(v  1 e 1 0 ]
+"14
+[v _initial_OSSCON initial_OSSCON `(v  1 e 1 0 ]
+"19
+[v _initial_LED initial_LED `(v  1 e 1 0 ]
+"24
+[v _initial_BUTTON initial_BUTTON `(v  1 e 1 0 ]
+"30
+[v _initial_INTERRUPT initial_INTERRUPT `(v  1 e 1 0 ]
+"16 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\main.c
+[v _main_interrupt main_interrupt `IIH(v  1 e 1 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+"10 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\register.c
+[v _swap_machine swap_machine `(v  1 e 1 0 ]
+"29
+[v _initial_register initial_register `(v  1 e 1 0 ]
+"13 C:\Users\Dell\MPLABXProjects\LAB_5_project.X/dht.h
+[v _temperature temperature `uc  1 e 1 0 ]
+"14
+[v _humidity humidity `uc  1 e 1 0 ]
+"16
+[v _temperature_old temperature_old `uc  1 e 1 0 ]
+"17
+[v _humidity_old humidity_old `uc  1 e 1 0 ]
+"19
+[v _temperature_dht11 temperature_dht11 `[2]uc  1 e 2 0 ]
+"20
+[v _humidity_dht11 humidity_dht11 `[2]uc  1 e 2 0 ]
+"8 C:\Users\Dell\MPLABXProjects\LAB_5_project.X/variables.h
+[v _first_read_A first_read_A `uc  1 e 1 0 ]
+"9
+[v _second_read_A second_read_A `uc  1 e 1 0 ]
+"10
+[v _first_read_B first_read_B `uc  1 e 1 0 ]
+"11
+[v _second_read_B second_read_B `uc  1 e 1 0 ]
+"12
+[v _button_A button_A `uc  1 e 1 0 ]
+"13
+[v _button_B button_B `uc  1 e 1 0 ]
+"14
+[v _BUTTON_STATE BUTTON_STATE `uc  1 e 1 0 ]
+"15
+[v _BUTTON_INC_STATE BUTTON_INC_STATE `uc  1 e 1 0 ]
+"17
+[v _hold_but_B hold_but_B `uc  1 e 1 0 ]
+"20
+[v _temp_heat_up temp_heat_up `i  1 e 2 0 ]
+"21
+[v _temp_humidity temp_humidity `i  1 e 2 0 ]
+"23
+[v _TIME_SWAP TIME_SWAP `uc  1 e 1 0 ]
+"24
+[v _TEMP_SWAP TEMP_SWAP `uc  1 e 1 0 ]
+"25
+[v _HUMI_SWAP HUMI_SWAP `uc  1 e 1 0 ]
+"28
+[v _state_machine state_machine `E4611  1 e 1 0 ]
+"31
+[v _state_working state_working `E4618  1 e 1 0 ]
+"34
+[v _setting setting `E4622  1 e 1 0 ]
+"36
+[v _time_checkout_HEATER time_checkout_HEATER `i  1 e 2 0 ]
+"37
+[v _time_checkout_HEATPUMB time_checkout_HEATPUMB `i  1 e 2 0 ]
+"39
+[v _remove_tasks remove_tasks `i  1 e 2 0 ]
+"40
+[v _NUMBER_EXIST NUMBER_EXIST `i  1 e 2 0 ]
+"41
+[v _NUMBER_EXIST_TASKS NUMBER_EXIST_TASKS `i  1 e 2 0 ]
+"42
+[v _HEAD_QUEUE HEAD_QUEUE `i  1 e 2 0 ]
+"43
+[v _ALLOW_TIMER_REGISTER ALLOW_TIMER_REGISTER `uc  1 e 1 0 ]
+"58
+[v _execution execution `[10]i  1 e 20 0 ]
+[s S38 . 23 `*.38(v 1 callback 3 0 `uo 1 delay 8 3 `uo 1 period 8 11 `*.39v 1 data 2 19 `i 1 next 2 21 ]
+"59
+[v _tasks tasks `[10]S38  1 e 230 0 ]
+[s S220 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"2684 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f8722.h
+[s S785 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S791 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+]
+[s S798 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S801 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S805 . 1 `S220 1 . 1 0 `S785 1 . 1 0 `S791 1 . 1 0 `S798 1 . 1 0 `S801 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES805  1 e 1 @3968 ]
+[s S260 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2833
+[s S850 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 INT3 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S859 . 1 `uc 1 FLT0 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 ECCP2 1 0 :1:3 
+]
+[s S863 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2 1 0 :1:3 
+]
+[s S866 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 P2A 1 0 :1:3 
+]
+[s S869 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S872 . 1 `S260 1 . 1 0 `S850 1 . 1 0 `S859 1 . 1 0 `S863 1 . 1 0 `S866 1 . 1 0 `S869 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES872  1 e 1 @3969 ]
+[s S1224 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"3005
+[s S1497 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 ECCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S1506 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 ECCP2 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S1515 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCL1 1 0 :1:3 
+`uc 1 SDA1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK1 1 0 :1:6 
+`uc 1 DT1 1 0 :1:7 
+]
+[s S1524 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 P2A 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 SCK1 1 0 :1:3 
+`uc 1 SDI1 1 0 :1:4 
+`uc 1 SDO1 1 0 :1:5 
+`uc 1 TX1 1 0 :1:6 
+`uc 1 RX1 1 0 :1:7 
+]
+[s S1533 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[u S1537 . 1 `S1224 1 . 1 0 `S1497 1 . 1 0 `S1506 1 . 1 0 `S1515 1 . 1 0 `S1524 1 . 1 0 `S1533 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES1537  1 e 1 @3970 ]
+"3195
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+[s S1255 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"4506
+[s S1264 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S1273 . 1 `S1255 1 . 1 0 `S1264 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1273  1 e 1 @3977 ]
+[s S1295 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"4730
+[s S1304 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S1313 . 1 `S1295 1 . 1 0 `S1304 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1313  1 e 1 @3979 ]
+[s S367 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"4842
+[s S376 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S385 . 1 `S367 1 . 1 0 `S376 1 . 1 0 ]
+[v _LATDbits LATDbits `VES385  1 e 1 @3980 ]
+[s S1131 . 1 `uc 1 LATF0 1 0 :1:0 
+`uc 1 LATF1 1 0 :1:1 
+`uc 1 LATF2 1 0 :1:2 
+`uc 1 LATF3 1 0 :1:3 
+`uc 1 LATF4 1 0 :1:4 
+`uc 1 LATF5 1 0 :1:5 
+`uc 1 LATF6 1 0 :1:6 
+`uc 1 LATF7 1 0 :1:7 
+]
+"5066
+[s S1140 . 1 `uc 1 LF0 1 0 :1:0 
+`uc 1 LF1 1 0 :1:1 
+`uc 1 LF2 1 0 :1:2 
+`uc 1 LF3 1 0 :1:3 
+`uc 1 LF4 1 0 :1:4 
+`uc 1 LF5 1 0 :1:5 
+`uc 1 LF6 1 0 :1:6 
+`uc 1 LF7 1 0 :1:7 
+]
+[u S1149 . 1 `S1131 1 . 1 0 `S1140 1 . 1 0 ]
+[v _LATFbits LATFbits `VES1149  1 e 1 @3982 ]
+[s S211 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"5489
+[u S229 . 1 `S211 1 . 1 0 `S220 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES229  1 e 1 @3986 ]
+[s S251 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"5711
+[u S269 . 1 `S251 1 . 1 0 `S260 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES269  1 e 1 @3987 ]
+[s S1215 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"5933
+[u S1233 . 1 `S1215 1 . 1 0 `S1224 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1233  1 e 1 @3988 ]
+"6123
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S1091 . 1 `uc 1 TRISF0 1 0 :1:0 
+`uc 1 TRISF1 1 0 :1:1 
+`uc 1 TRISF2 1 0 :1:2 
+`uc 1 TRISF3 1 0 :1:3 
+`uc 1 TRISF4 1 0 :1:4 
+`uc 1 TRISF5 1 0 :1:5 
+`uc 1 TRISF6 1 0 :1:6 
+`uc 1 TRISF7 1 0 :1:7 
+]
+"6599
+[s S1100 . 1 `uc 1 RF0 1 0 :1:0 
+`uc 1 RF1 1 0 :1:1 
+`uc 1 RF2 1 0 :1:2 
+`uc 1 RF3 1 0 :1:3 
+`uc 1 RF4 1 0 :1:4 
+`uc 1 RF5 1 0 :1:5 
+`uc 1 RF6 1 0 :1:6 
+`uc 1 RF7 1 0 :1:7 
+]
+[u S1109 . 1 `S1091 1 . 1 0 `S1100 1 . 1 0 ]
+[v _TRISFbits TRISFbits `VES1109  1 e 1 @3991 ]
+"7383
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+[s S572 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 PSPIE 1 0 :1:7 
+]
+"7532
+[s S581 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S586 . 1 `S572 1 . 1 0 `S581 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES586  1 e 1 @3997 ]
+[s S540 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"7615
+[s S549 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S554 . 1 `S540 1 . 1 0 `S549 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES554  1 e 1 @3998 ]
+"10174
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"11908
+[v _T1CON T1CON `VEuc  1 e 1 @4045 ]
+[s S604 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"11945
+[s S607 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S615 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S621 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+]
+[s S624 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S629 . 1 `S604 1 . 1 0 `S607 1 . 1 0 `S615 1 . 1 0 `S621 1 . 1 0 `S624 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES629  1 e 1 @4045 ]
+"12027
+[v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
+"12034
+[v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
+"12474
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"12557
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"12633
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+[s S44 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"13144
+[s S53 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S62 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S66 . 1 `S44 1 . 1 0 `S53 1 . 1 0 `S62 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES66  1 e 1 @4082 ]
+"35 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"44
+} 0
+"15 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[v _start_timer start_timer `(v  1 e 1 0 ]
+{
+"17
+[v start_timer@time_vaddr time_vaddr `E4656  1 a 1 4 ]
+"15
+[v start_timer@type type `i  1 p 2 0 ]
+"45
+} 0
+"29 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\register.c
+[v _initial_register initial_register `(v  1 e 1 0 ]
+{
+"30
+[v initial_register@temp temp `ul  1 a 4 67 ]
+"33
+} 0
+"6 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\initial.c
+[v _initial_SYSTEM initial_SYSTEM `(v  1 e 1 0 ]
+{
+"12
+} 0
+"14 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\display.c
+[v _initial_display initial_display `(v  1 e 1 0 ]
+{
+"23
+} 0
+"46 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\BBSPI_LCD.c
+[v _LCDInit LCDInit `(v  1 e 1 0 ]
+{
+"62
+} 0
+"124
+[v _Port_BBSPIInit Port_BBSPIInit `(v  1 e 1 0 ]
+{
+[v Port_BBSPIInit@port_dir port_dir `uc  1 a 1 wreg ]
+[v Port_BBSPIInit@port_dir port_dir `uc  1 a 1 wreg ]
+"129
+[v Port_BBSPIInit@port_dir port_dir `uc  1 a 1 3 ]
+"134
+} 0
+"71
+[v _InitBBSPI InitBBSPI `(v  1 e 1 0 ]
+{
+"82
+} 0
+"14 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\initial.c
+[v _initial_OSSCON initial_OSSCON `(v  1 e 1 0 ]
+{
+"17
+} 0
+"19
+[v _initial_LED initial_LED `(v  1 e 1 0 ]
+{
+"22
+} 0
+"30
+[v _initial_INTERRUPT initial_INTERRUPT `(v  1 e 1 0 ]
+{
+"32
+} 0
+"24
+[v _initial_BUTTON initial_BUTTON `(v  1 e 1 0 ]
+{
+"29
+} 0
+"24 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\display.c
+[v _initDisplayDHT initDisplayDHT `(v  1 e 1 0 ]
+{
+"31
+} 0
+"151 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[v _dispatch dispatch `(v  1 e 1 0 ]
+{
+"152
+[v dispatch@i i `i  1 a 2 15 ]
+"159
+} 0
+"21 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\button.c
+[v _read_button_B read_button_B `(v  1 e 1 0 ]
+{
+"33
+} 0
+"71 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\dht.c
+[v _readTempAndHumid readTempAndHumid `(v  1 e 1 0 ]
+{
+"79
+} 0
+"10 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\button.c
+[v _read_button_A read_button_A `(v  1 e 1 0 ]
+{
+"20
+} 0
+"10 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\register.c
+[v _swap_machine swap_machine `(v  1 e 1 0 ]
+{
+"23
+} 0
+"31 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\dht.c
+[v _readDHT readDHT `(uc  1 e 1 0 ]
+{
+"34
+[v readDHT@timeOut timeOut `ui  1 a 2 9 ]
+"33
+[v readDHT@checkSum checkSum `uc  1 a 1 8 ]
+"69
+} 0
+"12
+[v _getByte getByte `(uc  1 e 1 0 ]
+{
+"14
+[v getByte@timeOut timeOut `ui  1 a 2 3 ]
+"13
+[v getByte@j j `uc  1 a 1 5 ]
+[v getByte@i i `uc  1 a 1 2 ]
+"29
+} 0
+"17 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\FSM.c
+[v _FSM FSM `(v  1 e 1 0 ]
+{
+"60
+} 0
+"35 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\button.c
+[v _switch_button_state switch_button_state `(v  1 e 1 0 ]
+{
+"89
+} 0
+"102 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[v _remove_timer remove_timer `(i  1 e 2 0 ]
+{
+"114
+[v remove_timer@temp_index temp_index `i  1 a 2 20 ]
+"102
+[v remove_timer@id id `ul  1 p 4 6 ]
+"130
+} 0
+"51
+[v _register_timer register_timer `(ul  1 e 4 0 ]
+{
+"81
+[v register_timer@temp_delay temp_delay `uo  1 a 8 57 ]
+"80
+[v register_timer@temp_index temp_index `i  1 a 2 65 ]
+"54
+[v register_timer@i i `i  1 a 2 53 ]
+"51
+[v register_timer@delay delay `uo  1 p 8 6 ]
+[v register_timer@period period `uo  1 p 8 14 ]
+[v register_timer@callback callback `*.38(v  1 p 3 22 ]
+[v register_timer@data data `*.39v  1 p 2 25 ]
+"101
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"90 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\button.c
+[v _increaseButton increaseButton `(v  1 e 1 0 ]
+{
+"140
+} 0
+"49 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\display.c
+[v _display_state display_state `(v  1 e 1 0 ]
+{
+[v display_state@state state `i  1 p 2 8 ]
+"116
+} 0
+"199 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\BBSPI_LCD.c
+[v _LCDPutStr LCDPutStr `(v  1 e 1 0 ]
+{
+[v LCDPutStr@ptr ptr `*.32Cuc  1 p 2 6 ]
+"202
+} 0
+"32 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\display.c
+[v _displayDHT displayDHT `(v  1 e 1 0 ]
+{
+"47
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
+"34
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+"41
+} 0
+"180 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\BBSPI_LCD.c
+[v _LCDPutInst LCDPutInst `(v  1 e 1 0 ]
+{
+[v LCDPutInst@ch ch `uc  1 a 1 wreg ]
+[v LCDPutInst@ch ch `uc  1 a 1 wreg ]
+"182
+[v LCDPutInst@ch ch `uc  1 a 1 5 ]
+"190
+} 0
+"161
+[v _LCDPutChar LCDPutChar `(v  1 e 1 0 ]
+{
+[v LCDPutChar@ch ch `uc  1 a 1 wreg ]
+[v LCDPutChar@ch ch `uc  1 a 1 wreg ]
+"163
+[v LCDPutChar@ch ch `uc  1 a 1 5 ]
+"171
+} 0
+"145
+[v _WritePort_BBSPI WritePort_BBSPI `(v  1 e 1 0 ]
+{
+[v WritePort_BBSPI@port_add port_add `uc  1 a 1 wreg ]
+[v WritePort_BBSPI@port_add port_add `uc  1 a 1 wreg ]
+[v WritePort_BBSPI@a a `uc  1 p 1 3 ]
+"147
+[v WritePort_BBSPI@port_add port_add `uc  1 a 1 4 ]
+"152
+} 0
+"92
+[v _SendByteBBSPI SendByteBBSPI `(v  1 e 1 0 ]
+{
+[v SendByteBBSPI@output output `uc  1 a 1 wreg ]
+"95
+[v SendByteBBSPI@input input `uc  1 a 1 2 ]
+"94
+[v SendByteBBSPI@bitcount bitcount `uc  1 a 1 1 ]
+"92
+[v SendByteBBSPI@output output `uc  1 a 1 wreg ]
+"95
+[v SendByteBBSPI@output output `uc  1 a 1 0 ]
+"115
+} 0
+"16 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\main.c
+[v _main_interrupt main_interrupt `IIH(v  1 e 1 0 ]
+{
+"33
+} 0
+"138 C:\Users\Dell\MPLABXProjects\LAB_5_project.X\driver.c
+[v _timer_ISR timer_ISR `(i  1 e 2 0 ]
+{
+"143
+[v timer_ISR@temp temp `i  1 a 2 56 ]
+"139
+[v timer_ISR@i i `i  1 a 2 58 ]
+"150
+} 0
+"161
+[v _add_tasks add_tasks `(v  1 e 1 0 ]
+{
+"170
+[v add_tasks@temp_delay temp_delay `uo  1 a 8 36 ]
+"162
+[v add_tasks@temp_next temp_next `i  1 a 2 44 ]
+"161
+[v add_tasks@id id `i  1 p 2 6 ]
+"189
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
+[v i2___wmul __wmul `(ui  1 e 2 0 ]
+{
+[v i2___wmul@product __wmul `ui  1 a 2 4 ]
+[v i2___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v i2___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0

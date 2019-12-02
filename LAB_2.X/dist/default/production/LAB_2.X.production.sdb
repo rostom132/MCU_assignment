@@ -1,0 +1,244 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F8722 ]
+[d frameptr 4065 ]
+"8 C:\Users\Dell\MPLABXProjects\LAB_2.X\main.c
+[e E4555 state `uc
+NORMAL 0
+BUTTONA 1
+BUTTONB 2
+]
+"47
+[e E4572 state_button `uc
+PRESS 0
+HOLD_FIRST 1
+HOLD_SECOND 2
+]
+"5 C:\Users\Dell\MPLABXProjects\LAB_2.X\button.c
+[v _read_button_A read_button_A `(i  1 e 2 0 ]
+"14
+[v _read_button_B read_button_B `(i  1 e 2 0 ]
+"23
+[v _read_all_button read_all_button `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"5 C:\Users\Dell\MPLABXProjects\LAB_2.X\initial.c
+[v _initial initial `(v  1 e 1 0 ]
+"21 C:\Users\Dell\MPLABXProjects\LAB_2.X\main.c
+[v _counting counting `IIH(v  1 e 1 0 ]
+"45
+[v _main main `(v  1 e 1 0 ]
+"32 C:\Users\Dell\MPLABXProjects\LAB_2.X/pin_manager.h
+[v _first_read_A first_read_A `uc  1 e 1 0 ]
+"33
+[v _second_read_A second_read_A `uc  1 e 1 0 ]
+"34
+[v _first_read_B first_read_B `uc  1 e 1 0 ]
+"35
+[v _second_read_B second_read_B `uc  1 e 1 0 ]
+[s S175 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"2684 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f8722.h
+[s S289 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S295 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+]
+[s S302 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S305 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S309 . 1 `S175 1 . 1 0 `S289 1 . 1 0 `S295 1 . 1 0 `S302 1 . 1 0 `S305 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES309  1 e 1 @3968 ]
+[s S215 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2833
+[s S354 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 INT3 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S363 . 1 `uc 1 FLT0 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 ECCP2 1 0 :1:3 
+]
+[s S367 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2 1 0 :1:3 
+]
+[s S370 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 P2A 1 0 :1:3 
+]
+[s S373 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S376 . 1 `S215 1 . 1 0 `S354 1 . 1 0 `S363 1 . 1 0 `S367 1 . 1 0 `S370 1 . 1 0 `S373 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES376  1 e 1 @3969 ]
+"3195
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"4815
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S166 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"5489
+[u S184 . 1 `S166 1 . 1 0 `S175 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES184  1 e 1 @3986 ]
+[s S206 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"5711
+[u S224 . 1 `S206 1 . 1 0 `S215 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES224  1 e 1 @3987 ]
+"6123
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"10174
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"12474
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"12557
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"12640
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"12647
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S28 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"13144
+[s S37 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S46 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S50 . 1 `S28 1 . 1 0 `S37 1 . 1 0 `S46 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES50  1 e 1 @4082 ]
+"8 C:\Users\Dell\MPLABXProjects\LAB_2.X\main.c
+[v _state_machine state_machine `E4555  1 e 1 0 ]
+"9
+[v _count_but1 count_but1 `uo  1 e 8 0 ]
+"10
+[v _count_but2 count_but2 `uo  1 e 8 0 ]
+"12
+[v _LED_count LED_count `uc  1 e 1 0 ]
+"13
+[v _LED_display LED_display `uc  1 e 1 0 ]
+"14
+[v _count_up count_up `uc  1 e 1 0 ]
+"15
+[v _button button `uc  1 e 1 0 ]
+"16
+[v _LED_count_sig LED_count_sig `uc  1 e 1 0 ]
+"45
+[v _main main `(v  1 e 1 0 ]
+{
+"47
+[v main@state_butA state_butA `E4572  1 a 1 9 ]
+"48
+[v main@state_butB state_butB `E4572  1 a 1 8 ]
+"127
+} 0
+"5 C:\Users\Dell\MPLABXProjects\LAB_2.X\initial.c
+[v _initial initial `(v  1 e 1 0 ]
+{
+"18
+} 0
+"21 C:\Users\Dell\MPLABXProjects\LAB_2.X\main.c
+[v _counting counting `IIH(v  1 e 1 0 ]
+{
+"43
+} 0
+"14 C:\Users\Dell\MPLABXProjects\LAB_2.X\button.c
+[v _read_button_B read_button_B `(i  1 e 2 0 ]
+{
+"22
+} 0
+"5
+[v _read_button_A read_button_A `(i  1 e 2 0 ]
+{
+"13
+} 0
+"23
+[v _read_all_button read_all_button `(i  1 e 2 0 ]
+{
+[v read_all_button@button_A button_A `i  1 p 2 2 ]
+[v read_all_button@button_B button_B `i  1 p 2 4 ]
+"27
+} 0
